@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./web.css" />
+    <title>Pharmacie BonBon</title>
+
+    <script>
+        nbPillsTrouvees = 0;
+
+        function changeImage(btn) {
+          var img = btn.querySelector('img');
+          if (img.src.endsWith('image1.png')) {
+            var chance = Math.floor(Math.random() * 4);
+            if (chance == 0){
+                img.src = './image2.png';
+                nbPillsTrouvees++;
+            }
+            else {
+                img.src = './image3.png';
+            }
+          } else {
+            if (img.src.endsWith('image2.png')){
+                nbPillsTrouvees--;
+            }
+            img.src = './image1.png';
+          }
+
+          if (nbPillsTrouvees >= 3) {
+            document.querySelector('#winornot').textContent = "Bravo!"
+            document.getElementById('winornot').style.fontSize = '3.5rem'
+          } else {
+            document.querySelector('#winornot').textContent = "Bonne chance!"
+          }
+        }
+    </script>
+</head>
+<body>
+    <h1>Bienvenue a la pharmacie BonBon</h1>
+    <h2>Le jeu de la semaine!</h2>
+    <table>
+        <tr>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+            <td><button onclick="changeImage(this)"><img src="./image1.png"></button></td>
+        </tr>
+    </table>
+
+    <p id="winornot"> Bonne chance! </p>
+</body>
+</html>

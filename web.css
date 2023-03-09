@@ -1,0 +1,9 @@
+img {
+    height: 60px;
+    width: 60px;
+}
+
+#winornot {
+    font-size: 2.5rem;
+    color: violet;
+}
